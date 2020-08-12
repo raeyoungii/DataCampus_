@@ -10,7 +10,7 @@ class QuotesSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        for i in range(322, 323):
+        for i in range(1, 581):
             url_content = response.css('.card-item:nth-child({}) a::attr(href)'.format(i)).get()
             yield SplashRequest(response.urljoin(url_content), callback=self.parse_doc, args={'wait': 0.5})
 
